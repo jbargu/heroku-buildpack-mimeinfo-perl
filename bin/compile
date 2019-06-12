@@ -31,7 +31,7 @@ function indent() {
 }
 
 # SCINOTE: Packages to be installed via apt-get, separated with whitespace
-packages="libfile-basedir-perl libfile-mimeinfo-perl  libreoffice libxfixes3 libxinerama-dev libxinerama1 libxdamage1"
+packages="libfile-basedir-perl libfile-mimeinfo-perl libreoffice libxfixes3 libxinerama-dev libxinerama1 libxdamage1 libglu1-mesa:i386"
 
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
@@ -54,7 +54,7 @@ do
     curl -s -L -z $PACKAGE_FILE -o $PACKAGE_FILE $PACKAGE 2>&1 | indent
   else
     topic "Fetching .debs for $PACKAGE"
-    apt-get $APT_OPTIONS -y --force-yes --no-install-recommends -d install --reinstall $PACKAGE | indent
+    apt-get $APT_OPTIONS -y --force-yes -d install --reinstall $PACKAGE | indent
   fi
 done
 
