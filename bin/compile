@@ -31,7 +31,7 @@ function indent() {
 }
 
 # SCINOTE: Packages to be installed via apt-get, separated with whitespace
-packages="libfile-basedir-perl libfile-mimeinfo-perl libreoffice-writer libxfixes3 libxinerama-dev libxinerama1 libxdamage1"
+packages="libfile-basedir-perl libfile-mimeinfo-perl "
 
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
