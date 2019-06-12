@@ -91,6 +91,9 @@ export PKG_CONFIG_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:$BUIL
 export PERL5LIB="/app/.apt/usr/share/perl5"
 export OFFICE_PATH="$BUILD_DIR/.apt/usr/lib/libreoffice"
 
+cd $APT_DIR/usr/lib/x86_64-linux-gnu
+ln -sv ../libreoffice/program/*.so .
+
 #give environment to later buildpacks
 export | grep -E -e '(PATH|LD_LIBRARY_PATH|LIBRARY_PATH|INCLUDE_PATH|CPATH|CPPPATH|PKG_CONFIG_PATH|OFFICE_PATH)='  > "$LP_DIR/export"
 
