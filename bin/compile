@@ -31,7 +31,7 @@ function indent() {
 }
 
 # SCINOTE: Packages to be installed via apt-get, separated with whitespace
-packages="libfile-basedir-perl libfile-mimeinfo-perl libreoffice-writer libxfixes3 libxinerama-dev libxinerama1 libxdamage1"
+packages="libfile-basedir-perl libfile-mimeinfo-perl  libreoffice-writer libreoffice-calc libreoffice-impress libxfixes3 libxinerama-dev libxinerama1 libxdamage1"
 
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
@@ -44,6 +44,7 @@ APT_OPTIONS="-o debug::nolocking=true -o dir::cache=$APT_CACHE_DIR -o dir::state
 topic "Updating apt caches"
 apt-get $APT_OPTIONS update | indent
 apt-mark hold libdrm2
+apt-mark hold libgl1-mesa-dri
 
 for PACKAGE in $packages
 do
